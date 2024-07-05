@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Admin page 2</title>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link href="css/material.css" rel="stylesheet">
+	<link href="css/app.css" rel="stylesheet">
+	<style type="text/css">
+		.mdl-textfield__input{
+			color:white;
+			border-color:white;
+		}
+		.mdl-textfield__input option{
+			color:#777777;
+		}
+		.mdl-textfield__label{
+			color:white;
+		}
+		form{
+			background-color:#201E1E;
+			opacity:0.7;
+			padding:20px;
+			display:inline-block;
+			float:center;
+		}
+	</style>
+</head>
+<body>
+	<div class="mdl-grid">
+		<form class="mdl-cell mdl-cell--12-col-phone mdl-cell--12-col-tablet mdl-cell--4-col-desktop mdl-cell--4-offset-desktop" id="changeTeacherPassword" method="post" action="/changeTeacherPassword" enctype="application/x-www-form-urlencoded">
+			<div class="mdl-cell mdl-cell--12-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+				<input class="mdl-textfield__input" pattern="[0-9]" type="text" name="idNumber"></input>
+				<label class="mdl-textfield__label" for="idNumber">ID Number</label>
+				<span class="mdl-textfield__error">Input is not valid</span>
+			</div>
+			<div class="mdl-cell mdl-cell--12-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+				<input class="mdl-textfield__input" type="password" name="oldPassword"></input>
+				<label class="mdl-textfield__label" for="oldPassword">Old Password</label>
+			</div>
+			<div class="mdl-cell mdl-cell--12-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+				<input class="mdl-textfield__input" type="password" name="newPassword"></input>
+				<label class="mdl-textfield__label" for="newPassword">New Password</label>
+			</div>
+			<div class="mdl-cell mdl-cell--12-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+				<input class="mdl-textfield__input" type="password" name="confirmNewPassword"></input>
+				<label class="mdl-textfield__label" for="confirmNewPassword">Confirm New Password</label>
+			</div>
+			<button class="mdl-button mdl-js-button mdl-button--colored mdl-button--raised mdl-js-ripple-effect" type="submit" value="Submit">Submit</button>
+		</form>
+	</div>
+	<script type="text/javascript"></script>
+	<script src="js/jquery-2.2.0.min.js"></script>
+	<script type="text" src="js/material.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#changeTeacherPassword").submit(function(){
+					$.ajax({
+						url:'/changeTeacherPassword',
+						type:'POST',
+						data:$("#changeTeacherPassword").serialize(),
+						success:function(data){
+							alert(JSON.stringify(data));
+						}
+					});	
+			return false;
+			});
+		});
+	</script>
+</body>
+</html>>

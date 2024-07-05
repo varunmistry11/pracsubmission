@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Admin Page</title>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link href="css/material.css" rel="stylesheet">
+	<link href="css/app.css" rel="stylesheet">
+	<style type="text/css">
+		.mdl-textfield__input{
+			color:white;
+			border-color:white;
+		}
+		.mdl-textfield__input option{
+			color:#777777;
+		}
+		.mdl-textfield__label{
+			color:white;
+		}
+		form{
+			background-color:#201E1E;
+			opacity:0.7;
+			padding:20px;
+			display:inline-block;
+			float:center;
+		}
+	</style>
+</head>
+<body>
+	<div class="demo-layout-waterfall mdl-layout mdl-js-layout">
+  		<header class="mdl-layout__header mdl-layout__header--waterfall">
+    		<div class="mdl-layout__header-row">
+      			<span class="mdl-layout-title"><h3>Admin</h3></span>
+    		</div>
+  		</header>
+	</div>
+
+	<br><br><br>
+	<!--<p id = "register">
+		Register a new teacher
+	</p>-->
+	<button id = "register" class="mdl-button mdl-js-button mdl-button--colored mdl-button--raised mdl-js-ripple-effect" type="submit" value="Submit">Register a new teacher</button>
+	<br><br>
+	<div id="toggleRegisterTeacher" class="mdl-grid">
+		<form class="mdl-cell mdl-cell--12-col-phone mdl-cell--12-col-tablet mdl-cell--4-col-desktop mdl-cell--4-offset-desktop" id="registerTeacherForm" method="post" action="/registerTeacher" enctype="application/x-www-form-urlencoded">
+			<div class="mdl-cell mdl-cell--12-col-phone mdl-cell--12-col-tablet mdl-cell--6-col-desktop mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+				<input class="mdl-textfield__input" pattern="[A-z]*" type="text" name="firstName"></input>
+				<label class="mdl-textfield__label" for="firstName">First Name</label>
+				<span class="mdl-textfield__error">Input is not valid</span>
+			</div>
+			<div class="mdl-cell mdl-cell--12-col-phone mdl-cell--12-col-tablet mdl-cell--6-col-desktop mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+				<input class="mdl-textfield__input" pattern="[A-z]*" type="text" name="lastName"></input>
+				<label class="mdl-textfield__label" for="lastName">Last Name</label>
+				<span class="mdl-textfield__error">Input is not valid</span>
+			</div>
+			<div class="mdl-cell mdl-cell--12-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+				<input class="mdl-textfield__input" pattern="[0-9]" type="text" name="idNumber"></input>
+				<label class="mdl-textfield__label" for="idNumber">ID Number</label>
+				<span class="mdl-textfield__error">Input is not valid</span>
+			</div>
+			<div class="mdl-cell mdl-cell--12-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+				<input class="mdl-textfield__input" type="password" name="password"></input>
+				<label class="mdl-textfield__label" for="password">Password</label>
+			</div>
+			<div class="mdl-cell mdl-cell--12-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+				<input class="mdl-textfield__input" type="password" name="confirmPassword"></input>
+				<label class="mdl-textfield__label" for="confirmPassword">Confirm Password</label>
+			</div>
+			<div class="mdl-cell mdl-cell--12-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+				<select class="mdl-textfield__input" name="department">
+					<option value="Computer Engineering">Computer Engineering</option>
+				    <option value="Information Technology">Information Technology</option>
+				    <option value="Mechanical Engineering">Mechanical Engineering</option>
+				    <option value="Electrical Engineering">Electrical Engineering</option>
+				    <option value="Electronics Engineering">Electronics Engineering</option>
+				    <option value="Electronics & Telecommunication Engineering">Electronics & Telecommunication Engineering</option>
+				    <option value="Civil Engineering">Civil Engineering</option>
+				    <option value="Production Engineering">Production Engineering</option>
+				    <option value="Textile Engineering">Textile Engineering</option>
+				</select>
+				<label class="mdl-textfield__label" for="department">Deparment</label>
+			</div>
+			<button class="mdl-button mdl-js-button mdl-button--colored mdl-button--raised mdl-js-ripple-effect" type="submit" value="Submit">Submit</button>
+		</form>
+	</div>
+	<!--<p id = "change">
+		Change password of teacher
+	</p>-->
+	<button id = "change" class="mdl-button mdl-js-button mdl-button--colored mdl-button--raised mdl-js-ripple-effect" type="submit" value="Submit">Change password of teacher</button>
+	<br><br>
+	<div id="toggleChange" class="mdl-grid">
+		<form class="mdl-cell mdl-cell--12-col-phone mdl-cell--12-col-tablet mdl-cell--4-col-desktop mdl-cell--4-offset-desktop" id="changeTeacherPassword" method="post" action="/changeTeacherPassword" enctype="application/x-www-form-urlencoded">
+			<div class="mdl-cell mdl-cell--12-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+				<input class="mdl-textfield__input" pattern="[0-9]" type="text" name="idNumber"></input>
+				<label class="mdl-textfield__label" for="idNumber">ID Number</label>
+				<span class="mdl-textfield__error">Input is not valid</span>
+			</div>
+			<div class="mdl-cell mdl-cell--12-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+				<input class="mdl-textfield__input" type="password" name="oldPassword"></input>
+				<label class="mdl-textfield__label" for="oldPassword">Old Password</label>
+			</div>
+			<div class="mdl-cell mdl-cell--12-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+				<input class="mdl-textfield__input" type="password" name="newPassword"></input>
+				<label class="mdl-textfield__label" for="newPassword">New Password</label>
+			</div>
+			<div class="mdl-cell mdl-cell--12-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+				<input class="mdl-textfield__input" type="password" name="confirmNewPassword"></input>
+				<label class="mdl-textfield__label" for="confirmNewPassword">Confirm New Password</label>
+			</div>
+			<button class="mdl-button mdl-js-button mdl-button--colored mdl-button--raised mdl-js-ripple-effect" type="submit" value="Submit">Submit</button>
+		</form>
+	</div>
+	<!--<p id="newSem">
+		Start a new Semester
+	</p>-->
+	<button id = "newSem" class="mdl-button mdl-js-button mdl-button--colored mdl-button--raised mdl-js-ripple-effect" type="submit" value="Submit">Start a new Semester</button>
+	<br><br>
+	<!--<div id="toggleNewSem" class="mdl-grid">
+			<button id="startNewSem" class="mdl-button mdl-js-button mdl-button--colored mdl-button--raised mdl-js-ripple-effect" type="submit" value="Submit">Start New Semester</button>
+	</div>-->
+	<!--<p id="resetStudentPassword">
+		Reset Student Password
+	</p>-->
+	<button id = "resetStudentPassword" class="mdl-button mdl-js-button mdl-button--colored mdl-button--raised mdl-js-ripple-effect" type="submit" value="Submit">Reset Student Passsword</button>
+	<br><br>
+	<div id="toggleResetStudentPassword" class="mdl-grid">
+		<form id="resetStudentPasswordForm" class="mdl-cell mdl-cell--12-col-phone mdl-cell--12-col-tablet mdl-cell--4-col-desktop mdl-cell--4-offset-desktop" method="post" action="/resetStudentPassword" enctype="application/x-www-form-urlencoded">
+			<div class="mdl-cell mdl-cell--12-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+				<input class="mdl-textfield__input" pattern="[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]" type="text" name="idNumber"></input>
+				<label class="mdl-textfield__label" for="idNumber">ID Number</label>
+				<span class="mdl-textfield__error">Input is not valid</span>
+			</div>
+			<div class="mdl-cell mdl-cell--12-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+				<input class="mdl-textfield__input" type="password" name="password" />
+				<label class="mdl-textfield__label" for="password">Password</label>
+			</div>
+			<div class="mdl-cell mdl-cell--12-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+				<input class="mdl-textfield__input" type="password" name="confirmPassword" />
+				<label class="mdl-textfield__label" for="confirmPassword">Confirm Password</label>
+			</div>
+			<button class="mdl-button mdl-js-button mdl-button--colored mdl-button--raised mdl-js-ripple-effect" type="submit" value="Submit">Reset</button>
+		</form>
+	</div>
+	<script type="text/javascript"></script>
+	<script src="js/jquery-2.2.0.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#toggleRegisterTeacher").hide();
+			$("#toggleChange").hide();
+			//$("#toggleNewSem").hide();
+			$("#toggleResetStudentPassword").hide();
+			$("#register").click(function(){
+				$("#toggleRegisterTeacher").slideToggle("slow");
+			});
+			$("#change").click(function(){
+				$("#toggleChange").slideToggle("slow");
+			});
+			/*$("#newSem").click(function(){
+				$("#toggleNewSem").slideToggle("slow");
+			});*/
+			$("#resetStudentPassword").click(function(){
+				$("#toggleResetStudentPassword").slideToggle("slow");
+			});
+			$("#newSem").submit(function(){
+				$.ajax({
+					url:'/startNewSem',
+					type:'POST',
+					success:function(data){
+						alert(JSON.stringify(data));
+					}
+				});
+			});
+			$("#resetStudentPasswordForm").submit(function(){
+				$.ajax({
+					url:'/resetStudentPassword',
+					type:'POST',
+					data:$("#resetStudentPasswordForm").serialize(),
+					success:function(data){
+						alert(JSON.stringify(data));
+					}
+				});
+			});
+			$("#registerTeacherForm").submit(function(){
+					$.ajax({
+						url:'/registerTeacher',
+						type:'POST',
+						data:$("#registerTeacherForm").serialize(),
+						success:function(data){
+							alert(JSON.stringify(data));
+						}
+					});	
+			return false;
+			});
+		});
+	</script>
+</body>
+</html>

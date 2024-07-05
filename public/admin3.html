@@ -1,0 +1,68 @@
+<!DOCTYPE html><html><head><title>Admin page 3</title><link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"><link href="css/material.css" rel="stylesheet"><link href="css/app.css" rel="stylesheet"><style type="text/css">.mdl-textfield__input{
+			color:white;
+			border-color:white;
+		}
+		.mdl-textfield__input option{
+			color:#777777;
+		}
+		.mdl-textfield__label{
+			color:white;
+		}
+		form{
+			background-color:#201E1E;
+			opacity:0.7;
+			padding:20px;
+			display:inline-block;
+			float:center;
+		}
+		.newCourse{
+			background-color: red;
+		}
+		.newLabel{
+			background-color: green;
+		}</style></head><body><!--
+	<div>
+		<form id="newSemesterForm" method="post" action="/newSemester" enctype="application/x-www-form-urlencoded">
+			<div>
+				<select name="department">
+					<option value="Computer Engineering">Computer Engineering</option>
+				    <option value="Information Technology">Information Technology</option>
+				    <option value="Mechanical Engineering">Mechanical Engineering</option>
+				    <option value="Electrical Engineering">Electrical Engineering</option>
+				    <option value="Electronics Engineering">Electronics Engineering</option>
+				    <option value="Electronics & Telecommunication Engineering">Electronics & Telecommunication Engineering</option>
+				    <option value="Civil Engineering">Civil Engineering</option>
+				    <option value="Production Engineering">Production Engineering</option>
+				    <option value="Textile Engineering">Textile Engineering</option>
+				</select>
+				<label for="department">Deparment</label>
+			</div>
+			<div id="#blank">
+			</div>
+			<button id="newCourseButton" type="button" value="newCourse">Add a Course</button>
+			<br>
+			<br>
+			<button type="submit" value="Submit">Submit</button>
+		</form>
+	</div>
+	--><div class="mdl-grid"><form class="mdl-cell mdl-cell--12-col-phone mdl-cell--12-col-tablet mdl-cell--4-col-desktop mdl-cell--4-offset-desktop" id="newSemesterForm" method="post" action="/newSemester" enctype="application/x-www-form-urlencoded"><div class="mdl-cell mdl-cell--12-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label"><select class="mdl-textfield__input" name="department"><option value="Computer Engineering">Computer Engineering</option><option value="Information Technology">Information Technology</option><option value="Mechanical Engineering">Mechanical Engineering</option><option value="Electrical Engineering">Electrical Engineering</option><option value="Electronics Engineering">Electronics Engineering</option><option value="Electronics & Telecommunication Engineering">Electronics & Telecommunication Engineering</option><option value="Civil Engineering">Civil Engineering</option><option value="Production Engineering">Production Engineering</option><option value="Textile Engineering">Textile Engineering</option></select><label class="mdl-textfield__label" for="department">Deparment</label></div><div id="#blank"></div><button id="newCourseButton" class="mdl-button mdl-js-button mdl-button--colored mdl-button--raised mdl-js-ripple-effect" type="button" value="newCourse">Add a Course</button><br><br><button class="mdl-button mdl-js-button mdl-button--colored mdl-button--raised mdl-js-ripple-effect" type="submit" value="Submit">Submit</button></form></div>--><script type="text/javascript"></script><script src="js/jquery-2.2.0.min.js"></script><script type="text/javascript" src="js/material.js"></script><script type="text/javascript">$(document).ready(function(){
+			$("#newCourseButton").click(function(){
+				/*$("#blank").append("<div class='divs'></div>");
+				$(".divs").append("<input type='text'></input>");*/
+				$("#blank").append("<div class='divs mdl-cell mdl-cell--12-col-phone mdl-cell--12-col-tablet mdl-cell--6-col-desktop mdl-textfield mdl-js-textfield mdl-textfield--floating-label'></div>");
+				$(".divs").append("<input class='mdl-textfield__input' type='text' name='courseName'></input>");
+				$(".divs").append("<label class='mdl-textfield__label' for='courseName'>Course Name</label>");
+			});
+			$("#newSemesterForm").submit(function(){
+					$.ajax({
+						url:'/registerTeacher',
+						type:'POST',
+						data:$("#newSemesterForm").serialize(),
+						success:function(data){
+							alert(JSON.stringify(data));
+						}
+					});	
+			return false;
+			});
+
+		});</script></body></html>

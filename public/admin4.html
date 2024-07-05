@@ -1,0 +1,30 @@
+<!DOCTYPE html><html><head><title>Admin Login</title><link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"><link href="css/material.css" rel="stylesheet"><link href="css/app.css" rel="stylesheet"><style type="text/css">.mdl-textfield__input{
+			color:white;
+			border-color:white;
+		}
+		.mdl-textfield__input option{
+			color:#777777;
+		}
+		.mdl-textfield__label{
+			color:white;
+		}
+		form{
+			background-color:#201E1E;
+			opacity:0.7;
+			padding:20px;
+			display:inline-block;
+			float:center;
+		}</style></head><body><div class="demo-layout-waterfall mdl-layout mdl-js-layout"><header class="mdl-layout__header mdl-layout__header--waterfall"><div class="mdl-layout__header-row"><span class="mdl-layout-title"><h3>Admin</h3></span></div></header></div><div class="mdl-grid"><form class="mdl-cell mdl-cell--12-col-phone mdl-cell--12-col-tablet mdl-cell--4-col-desktop mdl-cell--4-offset-desktop" id="adminLoginForm" method="post" action="/adminLogin" enctype="application/x-www-form-urlencoded"><div class="mdl-cell mdl-cell--12-col-phone mdl-cell--12-col-tablet mdl-cell--6-col-desktop mdl-textfield mdl-js-textfield mdl-textfield--floating-label"><input class="mdl-textfield__input" pattern="[A-z]*" type="text" name="adminUserName"><label class="mdl-textfield__label" for="adminUserName">Admin User Name</label><span class="mdl-textfield__error">Input is not valid</span></div><div class="mdl-cell mdl-cell--12-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label"><input class="mdl-textfield__input" type="password" name="password"><label class="mdl-textfield__label" for="password">Password</label></div><button class="mdl-button mdl-js-button mdl-button--colored mdl-button--raised mdl-js-ripple-effect" type="submit" value="Submit">Submit</button></form></div><script type="text/javascript"></script><script src="js/jquery-2.2.0.min.js"></script><script type="text/javascript">$(document).ready(function(){
+			$("#adminLoginForm").submit(function(){
+					$.ajax({
+						url:'/adminLogin',
+						type:'POST',
+						data:$("#adminLoginForm").serialize(),
+						success:function(data){
+							if(data==="Logged In")
+								window.location="/admin5";
+						}
+					});	
+			return false;
+			});
+		});</script></body></html>>
